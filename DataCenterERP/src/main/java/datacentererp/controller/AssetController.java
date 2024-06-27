@@ -57,7 +57,7 @@ public class AssetController {
         return assetService.getAssetCountByType();
     }
 
-    @PostMapping("{id}/delete.do")
+    @RequestMapping(value = "assets/{id}/delete.do", method = {RequestMethod.GET, RequestMethod.POST})
     public String deleteAsset(@PathVariable("id") int id) {
         assetService.deleteAsset(id);
         return "redirect:/assets.do";

@@ -25,3 +25,7 @@ WHERE
 SELECT count(*) FROM assets WHERE status = '운영';
 
 DELETE FROM assets WHERE id = 11;
+
+INSERT INTO assets(name, type, status, purchase_date, maintenance_schedule, location, ip_address, mac_address)
+VALUES ('Server22', 'Server', '운영' ,to_date('2024-06-24', 'YYYY-MM-DD'), 
+    		to_date('2028-12-01','YYYY-MM-DD'), 'D/C 3 Sec', '192.168.1.124', '00:1A:2B:3C:4D:12');
