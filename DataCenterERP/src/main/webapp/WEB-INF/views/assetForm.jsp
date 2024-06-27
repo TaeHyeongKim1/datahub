@@ -36,47 +36,41 @@
 
 <body>
     <div class="container">
-        <h2>Asset Form</h2>
-        <form action="${pageContext.request.contextPath}/assets/${empty asset.id ? 'create' : 'update'}.do" method="post">
-            <c:if test="${not empty asset.id}">
-                <div class="form-group">
-                    <label for="id">ID:</label>
-                    <input type="text" class="form-control" id="id" name="id" value="${asset.id}" readonly>
-                </div>
-            </c:if>
+        <h2>새 자산 추가</h2>
+        <form action="${pageContext.request.contextPath}/create.do" method="post">
             <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" class="form-control" id="name" name="name" value="${asset.name}">
+                <label for="name">자산명:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
             </div>
             <div class="form-group">
-                <label for="type">Type:</label>
-                <input type="text" class="form-control" id="type" name="type" value="${asset.type}">
+                <label for="type">자산유형:</label>
+                <input type="text" class="form-control" id="type" name="type" required>
             </div>
             <div class="form-group">
-                <label for="status">Status:</label>
-                <input type="text" class="form-control" id="status" name="status" value="${asset.status}">
+                <label for="status">자산 상태:</label>
+                <input type="text" class="form-control" id="status" name="status" required>
             </div>
             <div class="form-group">
-                <label for="purchase_Date">Purchase Date:</label>
-                <input type="date" class="form-control" id="purchase_Date" name="purchase_Date" value="${asset.purchase_Date}">
+                <label for="purchaseDate">입고날짜:</label>
+                <input type="date" class="form-control" id="purchaseDate" name="purchase_Date" required>
             </div>
             <div class="form-group">
-                <label for="maintenance_Schedule">Maintenance Schedule:</label>
-                <input type="date" class="form-control" id="maintenance_Schedule" name="maintenance_Schedule" value="${asset.maintenance_Schedule}">
+                <label for="maintenanceSchedule">유지보수 일정:</label>
+                <input type="date" class="form-control" id="maintenanceSchedule" name="maintenance_Schedule" required>
             </div>
             <div class="form-group">
-                <label for="location">Location:</label>
-                <input type="text" class="form-control" id="location" name="location" value="${asset.location}">
+                <label for="location">위치:</label>
+                <input type="text" class="form-control" id="location" name="location" required>
             </div>
             <div class="form-group">
-                <label for="ip_address">IP Address:</label>
-                <input type="text" class="form-control" id="ip_address" name="ip_address" value="${asset.ip_address}">
+                <label for="ipAddress">IP 주소:</label>
+                <input type="text" class="form-control" id="ipAddress" name="ip_address" required>
             </div>
             <div class="form-group">
-                <label for="mac_address">MAC Address:</label>
-                <input type="text" class="form-control" id="mac_address" name="mac_address" value="${asset.mac_address}">
+                <label for="macAddress">MAC 주소:</label>
+                <input type="text" class="form-control" id="macAddress" name="mac_address" required>
             </div>
-            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="submit" class="btn btn-primary">추가</button>
         </form>
     </div>
 </body>

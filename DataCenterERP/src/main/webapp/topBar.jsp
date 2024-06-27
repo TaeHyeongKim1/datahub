@@ -7,7 +7,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">DataHub ERP</a>
+        <a class="navbar-brand" href="#">DataHub <sup>ERP</sup></a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <c:choose>

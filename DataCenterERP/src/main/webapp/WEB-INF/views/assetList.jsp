@@ -37,6 +37,7 @@
 <body>
     <div class="container">
         <h2>자산 목록</h2>
+        <a href="${pageContext.request.contextPath}/new.do" class="btn btn-primary">새 자산 추가</a>
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -55,7 +56,8 @@
                         <td>${asset.name}</td>
                         <td>${asset.type}</td>
                         <td>${asset.status}</td>
-                        <td>${asset.purchase_Date}</td>
+                        <td><input type="date" class="form-control" id="purchase_DateStr" name="purchase_DateStr" 
+                    value='<fmt:formatDate value="${asset.purchase_Date}" pattern="yyyy-MM-dd" />' readonly></td>
                         <td>
                             <a href="${pageContext.request.contextPath}/assets/${asset.id}/edit.do" class="btn btn-info">상세보기</a>
                         </td>
@@ -63,7 +65,7 @@
                 </c:forEach>
             </tbody>
         </table>
-        <a href="${pageContext.request.contextPath}/new.do" class="btn btn-primary">새 자산 추가</a>
+        
     </div>
 </body>
 </html>

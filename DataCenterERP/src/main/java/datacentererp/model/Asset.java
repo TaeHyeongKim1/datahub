@@ -9,9 +9,38 @@ public class Asset {
 	    private String status;
 	    private Date purchase_Date;
 	    private Date maintenance_Schedule;
+	    private String purchase_DateStr;
+	    private String maintenance_ScheduleStr;
 	    private String location;
 	    private String ip_address;
 	    private String mac_address;
+	    public Asset(Integer id, String name, String type, String status, String purchase_DateStr,
+				String maintenance_ScheduleStr, String location, String ip_address, String mac_address) {
+			super();
+			this.id = id;
+			this.name = name;
+			this.type = type;
+			this.status = status;
+			this.purchase_DateStr = purchase_DateStr;
+			this.maintenance_ScheduleStr = maintenance_ScheduleStr;
+			this.location = location;
+			this.ip_address = ip_address;
+			this.mac_address = mac_address;
+		}
+		
+	    public String getPurchase_DateStr() {
+			return purchase_DateStr;
+		}
+		public void setPurchase_DateStr(String purchase_DateStr) {
+			this.purchase_DateStr = purchase_DateStr;
+		}
+		public String getMaintenance_ScheduleStr() {
+			return maintenance_ScheduleStr;
+		}
+		public void setMaintenance_ScheduleStr(String maintenance_ScheduleStr) {
+			this.maintenance_ScheduleStr = maintenance_ScheduleStr;
+		}
+		
 		public Integer getId() {
 			return id;
 		}

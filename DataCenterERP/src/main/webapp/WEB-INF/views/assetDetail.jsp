@@ -1,15 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     import="java.util.*"
-    import="datacentererp.vo.*"
-    import="datacentererp.a04_database.*"
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <fmt:requestEncoding value="utf-8"/>
 <!DOCTYPE html>
-<html>	
+<html>
 <head>
 <meta charset="UTF-8">
 <title>Asset Detail</title>
@@ -39,71 +37,134 @@
             <div class="input-group-prepend">
                 <span class="input-group-text justify-content-center">자산명</span>
             </div>
-            <input name="name" class="form-control" value="${asset.name}" />
+            <input name="name" class="form-control" value="${asset.name}"  readonly/>
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text justify-content-center">자산유형</span>
             </div>
-            <input name="type" class="form-control" value="${asset.type}" />
+            <input name="type" class="form-control" value="${asset.type}" readonly />
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text justify-content-center">자산상태</span>
             </div>
-            <input name="status" class="form-control" value="${asset.status}" />
+            <input name="status" class="form-control" value="${asset.status}" readonly />
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text justify-content-center">구입 날짜</span>
             </div>
-            <input type="date" name="purchaseDate" class="form-control" value="${asset.purchase_Date}" />
+            <input type="date" name="purchaseDateStr" class="form-control" 
+            value='<fmt:formatDate value="${asset.purchase_Date}" pattern="yyyy-MM-dd" />' readonly />
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text justify-content-center">유지보수 일정</span>
             </div>
-            <input type="date" name="maintenanceSchedule" class="form-control" value="${asset.maintenance_Schedule}" />
+            <input type="date" name="maintenanceScheduleStr" class="form-control" 
+            value='<fmt:formatDate value="${asset.maintenance_Schedule}" pattern="yyyy-MM-dd" />' readonly />
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text justify-content-center">위치</span>
             </div>
-            <input name="location" class="form-control" value="${asset.location}" />
+            <input name="location" class="form-control" value="${asset.location}" readonly/>
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text justify-content-center">IP 주소</span>
             </div>
-            <input name="ipAddress" class="form-control" value="${asset.ip_address}" />
+            <input name="ipAddress" class="form-control" value="${asset.ip_address}" readonly/>
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text justify-content-center">MAC 주소</span>
             </div>
-            <input name="macAddress" class="form-control" value="${asset.mac_address}" />
+            <input name="macAddress" class="form-control" value="${asset.mac_address}" readonly/>
         </div>
         <div style="text-align:right;">
-            <input type="button" class="btn btn-info" value="수정" id="uptBtn"/>
-            <input type="button" class="btn btn-warning" value="삭제" id="delBtn"/>
-            <input type="button" class="btn btn-primary" value="메인 화면으로" id="mainBtn"/>
+            <input type="button" class="btn btn-info" value="수정" data-toggle="modal" data-target="#editModal"/>
         </div>
     </form>
+     <div style="text-align:right;">
+			<form id="deleteForm" method="post"
+				action="${path}/assets/${asset.id}/delete.do">
+				<input type="hidden" name="id" value="${asset.id}" />
+				 <input type="button" class="btn btn-warning" value="삭제" id="delBtn" />
+			</form>
+		
+		</div>
+		<!-- Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editModalLabel">Edit Asset</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="editForm" method="post" action="${path}/assets/update.do">
+                <input type="hidden" name="id" value="${asset.id}" />
+                <div class="form-group">
+                    <label for="name">자산명</label>
+                    <input type="text" class="form-control" id="name" name="name" value="${asset.name}">
+                </div>
+                <div class="form-group">
+                    <label for="type">자산유형</label>
+                    <input type="text" class="form-control" id="type" name="type" value="${asset.type}">
+                </div>
+                <div class="form-group">
+                    <label for="status">자산상태</label>
+                    <input type="text" class="form-control" id="status" name="status" value="${asset.status}">
+                </div>
+                <div class="form-group">
+                    <label for="purchaseDateStr">구입 날짜</label>
+                    <input type="date" class="form-control" id="purchase_DateStr" name="purchase_DateStr" 
+                    value='<fmt:formatDate value="${asset.purchase_Date}" pattern="yyyy-MM-dd" />'>
+                </div>
+                <div class="form-group">
+                    <label for="maintenanceScheduleStr">유지보수 일정</label>
+                    <input type="date" class="form-control" id="maintenanceScheduleStr" name="maintenance_ScheduleStr" 
+                    value='<fmt:formatDate value="${asset.maintenance_Schedule}" pattern="yyyy-MM-dd" />'>
+                </div>
+                <div class="form-group">
+                    <label for="location">위치</label>
+                    <input type="text" class="form-control" id="location" name="location" value="${asset.location}">
+                </div>
+                <div class="form-group">
+                    <label for="ipAddress">IP 주소</label>
+                    <input type="text" class="form-control" id="ipAddress" name="ip_address" value="${asset.ip_address}">
+                </div>
+                <div class="form-group">
+                    <label for="macAddress">MAC 주소</label>
+                    <input type="text" class="form-control" id="macAddress" name="mac_address" value="${asset.mac_address}">
+                </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+            <button type="button" class="btn btn-primary" id="saveBtn">저장</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script type="text/javascript">
-        $("#uptBtn").click(function(){
-            if(confirm("수정하시겠습니까?")){
-                $("form").attr("action","${path}/assets/update.do");
-                $("form").submit();
-            }
+        $("#saveBtn").click(function(){
+            $("#editForm").submit();
         });
+
         $("#delBtn").click(function(){
             if(confirm("삭제하시겠습니까?")){
-                location.href="${path}/assets/${asset.id}/delete.do";
+                $("#deleteForm").submit();
             }
         });
-        $("#mainBtn").click(function(){
-            location.href="${path}/assets";
-        });
+
+      
+        
     </script>
 </div>
 </body>
