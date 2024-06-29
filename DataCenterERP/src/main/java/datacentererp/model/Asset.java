@@ -14,6 +14,8 @@ public class Asset {
 	    private String location;
 	    private String ip_address;
 	    private String mac_address;
+	    
+	    
 	    public Asset(Integer id, String name, String type, String status, String purchase_DateStr,
 				String maintenance_ScheduleStr, String location, String ip_address, String mac_address) {
 			super();

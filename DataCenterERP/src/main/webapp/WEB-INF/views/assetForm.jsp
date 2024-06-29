@@ -37,7 +37,7 @@
 <body>
     <div class="container">
         <h2>새 자산 추가</h2>
-        <form action="${pageContext.request.contextPath}/create.do" method="post">
+        <form action="${path}/create.do" method="post">
             <div class="form-group">
                 <label for="name">자산명:</label>
                 <input type="text" class="form-control" id="name" name="name" required>
@@ -52,11 +52,11 @@
             </div>
             <div class="form-group">
                 <label for="purchaseDate">입고날짜:</label>
-                <input type="date" class="form-control" id="purchaseDate" name="purchase_Date" required>
+                <input type="date" class="form-control" id="purchase_Date" name="purchase_DateStr" required>
             </div>
             <div class="form-group">
                 <label for="maintenanceSchedule">유지보수 일정:</label>
-                <input type="date" class="form-control" id="maintenanceSchedule" name="maintenance_Schedule" required>
+                <input type="date" class="form-control" id="maintenance_Schedule" name="maintenance_ScheduleStr" required>
             </div>
             <div class="form-group">
                 <label for="location">위치:</label>
@@ -64,11 +64,11 @@
             </div>
             <div class="form-group">
                 <label for="ipAddress">IP 주소:</label>
-                <input type="text" class="form-control" id="ipAddress" name="ip_address" required>
+                <input type="text" class="form-control" id="ip_address" name="ip_address" required>
             </div>
             <div class="form-group">
                 <label for="macAddress">MAC 주소:</label>
-                <input type="text" class="form-control" id="macAddress" name="mac_address" required>
+                <input type="text" class="form-control" id="mac_address" name="mac_address" required>
             </div>
             <button type="submit" class="btn btn-primary">추가</button>
         </form>

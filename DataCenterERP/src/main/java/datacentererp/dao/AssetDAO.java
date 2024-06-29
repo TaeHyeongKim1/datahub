@@ -26,8 +26,8 @@ public interface AssetDAO {
             + "WHERE id = #{id}")
     void updateAsset(Asset asset);
 
-    @Insert("INSERT INTO assets(name, type, status, purchase_date, maintenance_schedule, location, ip_address, mac_address) VALUES (#{name}, #{type}, #{status},to_date('#{purchase_DateStr}', 'YYYY-MM-DD'), "
-    		+ "to_date('#{maintenance_ScheduleStr}','YYYY-MM-DD'), #{location}, #{ip_address}, #{mac_address})")
+    @Insert("INSERT INTO assets(name, type, status, purchase_date, maintenance_schedule, location, ip_address, mac_address) VALUES (#{name}, #{type}, #{status},to_date(#{purchase_DateStr}, 'YYYY-MM-DD'), "
+    		+ "to_date(#{maintenance_ScheduleStr},'YYYY-MM-DD'), #{location}, #{ip_address}, #{mac_address})")
     void insertAsset(Asset asset);
 
     @Delete("DELETE FROM assets WHERE id = #{id}")
