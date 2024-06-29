@@ -63,7 +63,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">${asset.type}</h5>
-                                <p class="card-text">Number of Assets: ${asset.count}</p>
+                                <p class="card-text">자산 개수: ${asset.count}</p>
                             </div>
                         </div>
                     </div>
