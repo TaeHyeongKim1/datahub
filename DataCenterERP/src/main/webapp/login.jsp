@@ -45,10 +45,10 @@
                                 <form id="customerLoginForm" class="user hidden" method="post">
                                     <input type="hidden" name="loginType" value="customer">
                                     <div class="form-group">
-                                        <input type="text" name="memid" class="form-control form-control-user" placeholder="아이디">
+                                        <input type="text" name="adminid" class="form-control form-control-user" placeholder="아이디">
                                     </div>
-                                    <div class="form-group">
-                                        <input type="password" name="mempwd" class="form-control form-control-user" placeholder="비밀번호">
+                                    <div class="form-group">	
+                                        <input type="password" name="adminpwd" class="form-control form-control-user" placeholder="비밀번호">
                                     </div>
                                     <input type="submit" value="고객사 로그인" class="btn btn-primary btn-user btn-block">
                                 </form>

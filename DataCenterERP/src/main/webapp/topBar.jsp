@@ -21,7 +21,7 @@
                     </c:when>
                     <c:otherwise>
                         <li class="nav-item">
-                            <a class="nav-link" href="${pageContext.request.contextPath}/login">Login</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/login.jsp">Login</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="${pageContext.request.contextPath}/register">Sign Up</a>
