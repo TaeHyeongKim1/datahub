@@ -33,4 +33,13 @@ public class UserService {
         admin.setRole("ADMIN");
         userDAO.insertAdmin(admin);
     }
+    
+    public boolean validateUser(String username, String password, String loginType) {
+        if ("customer".equals(loginType)) {
+            return userDAO.isValidCustomerUser(username, password);
+        } else if ("admin".equals(loginType)) {
+            return userDAO.isValidAdminUser(username, password);
+        }
+        return false;
+    }
 }

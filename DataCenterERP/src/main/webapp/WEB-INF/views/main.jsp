@@ -21,7 +21,7 @@
             margin: 0;
         }
         .content-wrapper {
-            display: flex;
+            display: flex;	
             flex: 1;
         }
         .sidebar {

@@ -42,15 +42,19 @@ public class UserController {
         return "register";
     }
 
-    // 로그인 처리
     @PostMapping("/login.do")
-    public String login(String username, String password, HttpSession session, Model model) {
-        // 로그인 처리 로직 추가 (데이터베이스 조회 등)
-        if ("admin".equals(username) && "adminpassword".equals(password)) {
+    public String login(
+            @RequestParam("username") String username,
+            @RequestParam("password") String password,
+            @RequestParam("loginType") String loginType,
+            HttpSession session,
+            Model model) {
+        
+        boolean isValidUser = userService.validateUser(username, password, loginType);
+
+        if (isValidUser) {
             session.setAttribute("user", username);
-            return "redirect:/main.do";
-        } else if ("customer".equals(username) && "customerpassword".equals(password)) {
-            session.setAttribute("user", username);
+            session.setAttribute("loginType", loginType);
             return "redirect:/main.do";
         } else {
             model.addAttribute("error", "Invalid username or password.");
@@ -58,18 +62,16 @@ public class UserController {
         }
     }
 
-    // 로그아웃 처리
     @GetMapping("/logout.do")
     public String logout(HttpSession session) {
         session.invalidate();
         return "redirect:/login.do";
     }
-
     // 회원가입 처리 (간단한 예시)
     @PostMapping("/register.do")
     public String register(String username, String password, Model model) {
         // 회원가입 처리 로직 추가 (데이터베이스 저장 등)
-        model.addAttribute("message", "Registration successful. Please login.");
+        model.addAttribute("message", "회원가입이 완료되었습니다.");
         return "redirect:/login.do";
     }
 
@@ -84,6 +86,6 @@ public class UserController {
             return "redirect:/login.do";
         }
     }
-
+    
   
 }

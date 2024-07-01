@@ -42,7 +42,7 @@ public class Customer {
 		this.password = password;
 		this.name = name;
 		this.companyNumber = companyNumber;
-		this.role = role;
+		this.role = role;	
 	}
 	public Customer() {
 		super();
