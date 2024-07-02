@@ -78,10 +78,34 @@ public class UserController {
     // 마이페이지 이동
     @GetMapping("/mypage.do")
     public String showMyPage(HttpSession session, Model model) {
+        String loginType = (String) session.getAttribute("loginType");
+
+        if ("admin".equals(loginType)) {
+            return "redirect:/adminMypage.do";
+        } else if ("customer".equals(loginType)) {
+            return "redirect:/customerMypage.do";
+        } else {
+            return "redirect:/login.do";
+        }
+    }
+
+    @GetMapping("/adminMypage.do")
+    public String showAdminMypage(HttpSession session, Model model) {
         String user = (String) session.getAttribute("user");
         if (user != null) {
             model.addAttribute("user", user);
-            return "mypage";
+            return "adminMypage";
+        } else {
+            return "redirect:/login.do";
+        }
+    }
+
+    @GetMapping("/customerMypage.do")
+    public String showCustomerMypage(HttpSession session, Model model) {
+        String user = (String) session.getAttribute("user");
+        if (user != null) {
+            model.addAttribute("user", user);
+            return "customerMypage";
         } else {
             return "redirect:/login.do";
         }
