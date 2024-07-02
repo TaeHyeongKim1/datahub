@@ -7,9 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import datacentererp.model.Admin;
+import datacentererp.model.Customer;
 import datacentererp.service.UserService;
 
 @Controller
@@ -89,22 +90,22 @@ public class UserController {
         }
     }
 
-    @GetMapping("/adminMypage.do")
+    @GetMapping("/mypage/admin.do")
     public String showAdminMypage(HttpSession session, Model model) {
-        String user = (String) session.getAttribute("user");
-        if (user != null) {
-            model.addAttribute("user", user);
+        Admin admin = (Admin) session.getAttribute("user");
+        if (admin != null) {
+            model.addAttribute("admin", admin);
             return "adminMypage";
         } else {
             return "redirect:/login.do";
         }
     }
 
-    @GetMapping("/customerMypage.do")
+    @GetMapping("/mypage/customer.do")
     public String showCustomerMypage(HttpSession session, Model model) {
-        String user = (String) session.getAttribute("user");
-        if (user != null) {
-            model.addAttribute("user", user);
+        Customer customer = (Customer) session.getAttribute("user");
+        if (customer != null) {
+            model.addAttribute("customer", customer);
             return "customerMypage";
         } else {
             return "redirect:/login.do";

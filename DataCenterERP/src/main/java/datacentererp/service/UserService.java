@@ -42,4 +42,12 @@ public class UserService {
         }
         return false;
     }
+    
+    public Admin getAdminUser(String username) {
+        return userDAO.getAdminUser(username);
+    }
+
+    public Customer getCustomerUser(String username) {
+        return userDAO.getCustomerUser(username);
+    }
 }

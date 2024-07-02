@@ -21,4 +21,10 @@ public interface UserDAO {
 
     @Select("SELECT COUNT(*) FROM admin WHERE username = #{username} AND password = #{password}")
     boolean isValidAdminUser(@Param("username") String username, @Param("password") String password);
+    
+    @Select("SELECT * FROM ADMIN WHERE username = #{username}")
+    Admin getAdminUser(@Param("username") String username);
+
+    @Select("SELECT * FROM CUSTOMER WHERE username = #{username}")
+    Customer getCustomerUser(@Param("username") String username);
 }
