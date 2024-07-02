@@ -58,7 +58,7 @@ public class UserController {
             session.setAttribute("loginType", loginType);
             return "redirect:/main.do";
         } else {
-            model.addAttribute("error", "Invalid username or password.");
+            model.addAttribute("error", "아이디혹은 비밀번호가 틀립니다.");
             return "login";
         }
     }
@@ -82,9 +82,9 @@ public class UserController {
         String loginType = (String) session.getAttribute("loginType");
 
         if ("admin".equals(loginType)) {
-            return "redirect:/adminMypage.do";
+            return "redirect:/adminMypage";
         } else if ("customer".equals(loginType)) {
-            return "redirect:/customerMypage.do";
+            return "redirect:/customerMypage";
         } else {
             return "redirect:/login.do";
         }

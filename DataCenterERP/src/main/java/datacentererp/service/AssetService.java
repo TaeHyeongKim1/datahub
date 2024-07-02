@@ -46,4 +46,5 @@ public class AssetService {
 	 * public List<String> getRecentLogs() { // Implement method to get recent
 	 * activity logs return assetDAO.getRecentLogs(); }
 	 */
+    
 }

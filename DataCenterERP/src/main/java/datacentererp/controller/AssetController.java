@@ -62,21 +62,7 @@ public class AssetController {
         assetService.deleteAsset(id);
         return "redirect:/assets.do";
     }
-	/*
-	 * @GetMapping("dashboard.do") public String showDashboard(Model model) {
-	 * List<Map<String, Object>> assetCountByType =
-	 * assetService.getAssetCountByType(); int totalAssets =
-	 * assetService.getAllAssets().size(); int problemAssets =
-	 * assetService.getAssetsByStatus("폐기").size(); // '문제' 상태의 자산 수 int
-	 * maintenanceAssets = assetService.getMaintenanceAssets().size(); // 유지보수 예정 자산
-	 * 수 List<String> recentLogs = assetService.getRecentLogs(); // 최근 활동 로그
-	 * 
-	 * model.addAttribute("assetCountByType", assetCountByType);
-	 * model.addAttribute("totalAssets", totalAssets);
-	 * model.addAttribute("problemAssets", problemAssets);
-	 * model.addAttribute("maintenanceAssets", maintenanceAssets);
-	 * model.addAttribute("recentLogs", recentLogs);
-	 * 
-	 * return "mainContent"; }
-	 */
+	
+	
+	 
 }
