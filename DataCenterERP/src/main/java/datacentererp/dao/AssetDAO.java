@@ -36,17 +36,15 @@ public interface AssetDAO {
     @Select("SELECT * FROM assets")
     List<Asset> getAllAssets();
 
-    @Select("SELECT type, COUNT(*) as count FROM assets GROUP BY type")
-    List<Map<String, Object>> getAssetCountByType();
     
-	/*
-	 * @Select("SELECT * FROM assets WHERE status = #{status}") List<Asset>
-	 * getAssetsByStatus(@Param("status") String status);
-	 * 
-	 * @Select("SELECT * FROM assets WHERE maintenance_schedule IS NOT NULL")
-	 * List<Asset> getMaintenanceAssets();
-	 * 
-	 * @Select("SELECT log FROM recent_logs ORDER BY timestamp DESC LIMIT 10")
-	 * List<String> getRecentLogs();
-	 */
+    
+    @Select("SELECT COUNT(*) FROM assets")
+    int getTotalAssets();
+
+    @Select("SELECT COUNT(*) FROM assets WHERE status = #{status}")
+    int getCountByStatus(@Param("status") String status);
+
+    @Select("SELECT COUNT(*) FROM assets WHERE maintenance_schedule >= ADD_MONTHS(SYSDATE, 2)")
+    int getMaintenanceCount();
+	
 }

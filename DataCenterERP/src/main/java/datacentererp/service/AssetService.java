@@ -32,19 +32,18 @@ public class AssetService {
         return assetDAO.getAllAssets();
     }
 
-    public List<Map<String, Object>> getAssetCountByType() {
-        return assetDAO.getAssetCountByType();
+    public int getTotalAssets() {
+        return assetDAO.getTotalAssets();
+    }
+
+    public int getCountByStatus(String status) {
+        return assetDAO.getCountByStatus(status);
+    }
+
+    public int getMaintenanceCount() {
+        return assetDAO.getMaintenanceCount();
     }
     
-	/*
-	 * public List<Asset> getAssetsByStatus(String status) { // Implement method to
-	 * get assets by status return assetDAO.getAssetsByStatus(status); }
-	 * 
-	 * public List<Asset> getMaintenanceAssets() { // Implement method to get
-	 * maintenance scheduled assets return assetDAO.getMaintenanceAssets(); }
-	 * 
-	 * public List<String> getRecentLogs() { // Implement method to get recent
-	 * activity logs return assetDAO.getRecentLogs(); }
-	 */
+	
     
 }

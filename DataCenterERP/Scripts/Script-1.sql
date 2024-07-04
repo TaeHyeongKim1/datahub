@@ -24,6 +24,7 @@ WHERE
 
 SELECT count(*) FROM assets WHERE status = '운영';
 
+
 DELETE FROM assets WHERE id = 11;
 
 INSERT INTO assets(name, type, status, purchase_date, maintenance_schedule, location, ip_address, mac_address)
@@ -67,10 +68,3 @@ public class Member{
    private int point;
 }
 */
-SELECT * FROM member01;
-INSERT INTO member01 values('himan', '7777', '홍길동', '관리자', 10000);
-SELECT *
-FROM member01
-WHERE id LIKE '%%'
-AND name LIKE '%%'
-AND auth LIKE '%%';

@@ -51,11 +51,7 @@ public class AssetController {
         return "assetDetail";
     }
 
-    @GetMapping("countByType.do")
-    @ResponseBody
-    public List<Map<String, Object>> getAssetCountByType() {
-        return assetService.getAssetCountByType();
-    }
+   
 
     @RequestMapping(value = "assets/{id}/delete.do", method = {RequestMethod.GET, RequestMethod.POST})
     public String deleteAsset(@PathVariable("id") int id) {
@@ -63,6 +59,18 @@ public class AssetController {
         return "redirect:/assets.do";
     }
 	
-	
+    @GetMapping("/dashboard.do")
+    public String showDashboard(Model model) {
+        int totalAssets = assetService.getTotalAssets();
+        int problemAssets = assetService.getCountByStatus("폐기");
+        int maintenanceAssets = assetService.getMaintenanceCount();
+        int opeationalAssets = assetService.getCountByStatus("운영");
+        
+        model.addAttribute("totalAssets", totalAssets);
+        model.addAttribute("problemAssets", problemAssets);
+        model.addAttribute("maintenanceAssets", maintenanceAssets);
+        model.addAttribute("opeationalAssets", opeationalAssets);
+        return "main";
+    }
 	 
 }

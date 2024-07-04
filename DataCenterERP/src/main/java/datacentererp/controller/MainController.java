@@ -11,7 +11,7 @@ public class MainController {
 
 	@GetMapping("/main.do")
     public String showMainPage(Model model) {
-        // 모델에 필요한 데이터를 추가할 수 있습니다.
+        
         return "main";
     }
 
@@ -29,6 +29,7 @@ public class MainController {
         model.addAttribute("username", username);
         model.addAttribute("loginType", loginType);
 
+        
         return "main";
     }
 }

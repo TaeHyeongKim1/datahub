@@ -1,25 +1,123 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"
+    import="java.util.*"
+  
+    %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="path" value="${pageContext.request.contextPath }"/>
+<fmt:requestEncoding value="utf-8"/> 	
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>고객사용 마이페이지</title>
+<meta charset="UTF-8">
+<title>고객사 마이페이지</title>
+<link rel="stylesheet" href="${path}/a00_com/bootstrap.min.css">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+    }
+
+    .pageTitle {
+        text-align: center;
+        font-weight: bold;
+        border: 1px solid #ddd;
+        background-color: #ffffff;
+        padding: 20px;
+        margin-top: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .profileSection {
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        width: 80%;
+        margin: 0 auto 50px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .sectionTitle {
+        margin-bottom: 20px;
+        color: #3f51b5;
+    }
+
+    .profileItem {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        margin: 10px;
+        padding: 20px;
+        width: calc(100% - 22px);
+        box-sizing: border-box;
+        font-size: 20px;
+        font-weight: bold;
+        background-color: #ffffff;
+        transition: all 0.3s ease;
+    }
+
+    .profileItem:hover {
+        color: #ffffff;
+        background: linear-gradient(135deg, #3f51b5, #1e88e5);
+        border-color: transparent;
+        transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .pageButton, .pageButton01, .pageButton02 {
+        position: absolute;
+        background-color: #3f51b5;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .pageButton:hover, .pageButton01:hover, .pageButton02:hover {
+        background-color: #1e88e5;
+    }
+
+    .pageButton {
+        top: 40px;
+        right: 20px;
+    }
+
+    .pageButton01 {
+        top: 40px;
+        right: 180px;
+    }
+
+    .pageButton02 {
+        top: 40px;
+        left: 20px;
+        background-color: red;
+    }
+
+    .pageButton02:hover {
+        background-color: #ff6666;
+    }
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>고객사 페이지</h1>
-        <c:choose>
-            <c:when test="${not empty customer}">
-                <p>아이디: <c:out value="${customer.username}"/></p>
-                <p>이름: <c:out value="${customer.name}"/></p>
-                <p>회사 번호: <c:out value="${customer.companyNumber}"/></p>
-                <p>권한: <c:out value="${customer.role}"/></p>
-            </c:when>
-            <c:otherwise>
-                <p>고객사 정보를 가져올 수 없습니다.</p>
-            </c:otherwise>
-        </c:choose>
-    </div>
+<h1 class="pageTitle">고객사 마이페이지</h1>
+<div class="profileSection">
+    <h2 class="sectionTitle">기본 정보</h2>
+    <div class="profileItem">아이디: <c:out value="${customer.username}"/></div>
+    <div class="profileItem">이름: <c:out value="${customer.name}"/></div>
+    <div class="profileItem">회사 번호: <c:out value="${customer.companyNumber}"/></div>
+    <div class="profileItem">권한: <c:out value="${customer.role}"/></div>
+</div>
+
+<a href="dashboard.do" class="pageButton">메인홈으로 이동</a>
 </body>
 </html>

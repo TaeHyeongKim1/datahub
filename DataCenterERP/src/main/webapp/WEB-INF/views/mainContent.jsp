@@ -44,40 +44,9 @@
             <canvas id="assetChart"></canvas>
         </div>
     </div>
-    <div class="row mt-4">
-        <div class="col-md-12">
-            <h3>최근 활동 로그</h3>
-            <ul class="list-group">
-                <c:forEach var="log" items="${recentLogs}">
-                    <li class="list-group-item">${log}</li>
-                </c:forEach>
-            </ul>
-        </div>
-    </div>
-    <div class="row mt-4">
-        <div class="col-md-12">
-            <h3>자산 유형별 현황</h3>
-            <div class="row">
-                <c:forEach var="asset" items="${assetCountByType}">
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">${asset.type}</h5>
-                                <p class="card-text">자산 개수: ${asset.count}</p>
-                            </div>
-                        </div>
-                    </div>
-                </c:forEach>
-            </div>
-        </div>
-    </div>
-    <div class="row mt-4">
-        <div class="col-md-12">
-            <h3>빠른 액세스</h3>
-            <a href="${path}/new.do" class="btn btn-primary">자산 추가</a>
-            <a href="${path}/assets.do" class="btn btn-secondary">자산 목록</a>
-        </div>
-    </div>
+   
+   
+    
 </div>
 
 <script>
@@ -86,10 +55,10 @@
         var assetChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['운영', '유휴', '폐기'], // 데이터 유형
+                labels: ['운영', '유지보수예정 자산', '폐기'], // 데이터 유형
                 datasets: [{
                     label: '자산 유형별 수량',
-                    data: [56, 18, 3], // 실제 데이터로 변경 필요
+                    data: [${totalAssets},${maintenanceAssets},${problemAssets}], // 실제 데이터로 변경 필요
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',

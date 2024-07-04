@@ -10,10 +10,10 @@ import datacentererp.model.Customer;
 
 public interface UserDAO {
 
-    @Insert("INSERT INTO CUSTOMER (username, password, name, company_number, role) VALUES (#{username}, #{password}, #{name}, #{companyNumber}, #{role})")
+    @Insert("INSERT INTO CUSTOMER (username, password, name, companynumber, role) VALUES (#{username}, #{password}, #{name}, #{companyNumber}, #{role})")
     void insertCustomer(Customer customer);
 
-    @Insert("INSERT INTO ADMIN (username, password, name, employee_number, position, role) VALUES (#{username}, #{password}, #{name}, #{employeeNumber}, #{position}, #{role})")
+    @Insert("INSERT INTO ADMIN (username, password, name, employeenumber, position, role) VALUES (#{username}, #{password}, #{name}, #{employeeNumber}, #{position}, #{role})")
     void insertAdmin(Admin admin);
     
     @Select("SELECT COUNT(*) FROM customer WHERE username = #{username} AND password = #{password}")
@@ -22,9 +22,9 @@ public interface UserDAO {
     @Select("SELECT COUNT(*) FROM admin WHERE username = #{username} AND password = #{password}")
     boolean isValidAdminUser(@Param("username") String username, @Param("password") String password);
     
-    @Select("SELECT * FROM ADMIN WHERE username = #{username}")
-    Admin getAdminUser(@Param("username") String username);
+    @Select("SELECT * FROM admin WHERE username = #{username}")
+    Admin getAdminByUsername(@Param("username") String username);
 
-    @Select("SELECT * FROM CUSTOMER WHERE username = #{username}")
-    Customer getCustomerUser(@Param("username") String username);
+    @Select("SELECT * FROM customer WHERE username = #{username}")
+    Customer getCustomerByUsername(@Param("username") String username);
 }

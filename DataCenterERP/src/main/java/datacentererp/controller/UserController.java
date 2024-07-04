@@ -56,7 +56,7 @@ public class UserController {
         if (isValidUser) {
             session.setAttribute("user", username);
             session.setAttribute("loginType", loginType);
-            return "redirect:/main.do";
+            return "redirect:/dashboard.do";
         } else {
             model.addAttribute("error", "아이디혹은 비밀번호가 틀립니다.");
             return "login";
@@ -82,17 +82,18 @@ public class UserController {
         String loginType = (String) session.getAttribute("loginType");
 
         if ("admin".equals(loginType)) {
-            return "redirect:/adminMypage";
+            return "redirect:/adminMypage.do";
         } else if ("customer".equals(loginType)) {
-            return "redirect:/customerMypage";
+            return "redirect:/customerMypage.do";
         } else {
             return "redirect:/login.do";
         }
     }
 
-    @GetMapping("/mypage/admin.do")
+    @GetMapping("/adminMypage.do")
     public String showAdminMypage(HttpSession session, Model model) {
-        Admin admin = (Admin) session.getAttribute("user");
+        String username = (String) session.getAttribute("user");
+        Admin admin = userService.getAdminByUsername(username);
         if (admin != null) {
             model.addAttribute("admin", admin);
             return "adminMypage";
@@ -101,9 +102,10 @@ public class UserController {
         }
     }
 
-    @GetMapping("/mypage/customer.do")
+    @GetMapping("/customerMypage.do")
     public String showCustomerMypage(HttpSession session, Model model) {
-        Customer customer = (Customer) session.getAttribute("user");
+        String username = (String) session.getAttribute("user");
+        Customer customer = userService.getCustomerByUsername(username);
         if (customer != null) {
             model.addAttribute("customer", customer);
             return "customerMypage";

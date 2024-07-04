@@ -94,6 +94,7 @@
 				 <input type="button" class="btn btn-warning" value="삭제" id="delBtn" />
 			</form>
 		
+		
 		</div>
 		<!-- Modal -->
     <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
