@@ -37,7 +37,9 @@
 <body>
     <div class="container">
         <h2>자산 목록</h2>
+        <c:if test="${sessionScope.loginType != 'customer'}">
         <a href="${pageContext.request.contextPath}/new.do" class="btn btn-primary">새 자산 추가</a>
+        </c:if>
         <table class="table table-bordered">
             <thead>
                 <tr>

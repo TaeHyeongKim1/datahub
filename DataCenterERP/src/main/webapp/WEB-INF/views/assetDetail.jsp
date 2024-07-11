@@ -29,57 +29,57 @@
     <form method="post" action="${path}/assets/update.do">
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text justify-content-center">번호</span>
+                <span class="input-group-text justify-content-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;번호&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
             </div>
             <input type="number" name="id" class="form-control" value="${asset.id}" readonly />
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text justify-content-center">자산명</span>
+                <span class="input-group-text justify-content-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;자산이름&nbsp;&nbsp;&nbsp;&nbsp;</span>
             </div>
             <input name="name" class="form-control" value="${asset.name}"  readonly/>
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text justify-content-center">자산유형</span>
+                <span class="input-group-text justify-content-center">&nbsp;&nbsp;&nbsp;&nbsp;자산유형&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
             </div>
             <input name="type" class="form-control" value="${asset.type}" readonly />
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text justify-content-center">자산상태</span>
+                <span class="input-group-text justify-content-center">&nbsp;&nbsp;&nbsp;&nbsp;자산상태&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
             </div>
             <input name="status" class="form-control" value="${asset.status}" readonly />
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text justify-content-center">구입 날짜</span>
+                <span class="input-group-text justify-content-center">&nbsp;&nbsp;&nbsp;&nbsp;구입 날짜&nbsp;&nbsp;&nbsp;&nbsp;</span>
             </div>
             <input type="date" name="purchaseDateStr" class="form-control" 
             value='<fmt:formatDate value="${asset.purchase_Date}" pattern="yyyy-MM-dd" />' readonly />
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text justify-content-center">유지보수 일정</span>
+                <span class="input-group-text justify-content-center">유지보수 일정&nbsp;</span>
             </div>
             <input type="date" name="maintenanceScheduleStr" class="form-control" 
             value='<fmt:formatDate value="${asset.maintenance_Schedule}" pattern="yyyy-MM-dd" />' readonly />
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text justify-content-center">위치</span>
+                <span class="input-group-text justify-content-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;위치&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
             </div>
             <input name="location" class="form-control" value="${asset.location}" readonly/>
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text justify-content-center">IP 주소</span>
+                <span class="input-group-text justify-content-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IP 주소&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
             </div>
             <input name="ipAddress" class="form-control" value="${asset.ip_address}" readonly/>
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text justify-content-center">MAC 주소</span>
+                <span class="input-group-text justify-content-center">&nbsp;&nbsp;&nbsp;MAC 주소&nbsp;&nbsp;&nbsp;&nbsp;</span>
             </div>
             <input name="macAddress" class="form-control" value="${asset.mac_address}" readonly/>
         </div>

@@ -68,3 +68,96 @@ public class Member{
    private int point;
 }
 */
+exp KTHpro/741963@localhost:1521/xe file='C:\Users\taehe\git\Datahub\backup\backup.dmp' full=y;
+
+
+--기본 테이블
+
+
+DROP TABLE board;
+create table board(
+ no number(5) primary key,
+ refno number(5),
+ subject varchar2(100),
+ content varchar2(1000), 
+ writer varchar2(50),
+ readcnt number(3),
+ regdte date,
+ uptdte date
+);
+SELECT * FROM board;
+
+create sequence board_seq
+  start with 1
+  maxvalue 9999;
+insert into board values(board_seq.nextval,0,'첫번째글',
+'내용', '홍길동',0,sysdate,sysdate);
+select * from board
+where subject like '%%'
+and writer like '%%';
+
+SELECT * FROM board;
+UPDATE board 
+  SET SUBJECT = '변경',
+      CONTENT= '변경(내용)', --content
+      UPTDTE = SYSDATE
+WHERE NO = 1;    
+DROP 
+DELETE FROM board 
+WHERE NO = 2;
+/*
+SELECT * FROM board;
+UPDATE board 
+  SET SUBJECT = #{SUBJECT},
+      CONTENT = #{CONTENT},
+      UPTDTE = SYSDATE
+WHERE NO = #{NO}    
+
+DELETE FROM board 
+WHERE NO = #{NO}  
+*/
+
+
+       select rewnum cnt, level, b.* 
+       from board b
+       where subject like '%%'          
+       and writer like '%%'
+       start with refno = 0
+       connect by prior no = refno
+       order siblings by no desc;
+/*
+
+  select rewnum cnt, level, b.* 
+       from board b
+       where subject like '%%'          
+       and writer like '%%'
+       start with refno = 0
+       connect by prior no = refno
+       order siblings by no desc; 
+*/      
+      
+SELECT (*)
+FROM board;
+WHERE subject LIKE '%%'
+AND writer LIKE '%%';
+SELECT *
+FROM (
+   select rownum cnt, level, b.*  
+   from board b
+   where subject like '%'||''||'%'
+   and writer like '%'||''||'%'
+   start with refno = 0
+   connect by prior no = refno
+   order siblings by no DESC )
+WHERE cnt BETWEEN 1 AND 5;
+/*
+SELECT *
+FROM (
+   select rownum cnt, level, b.*  
+   from board b
+   where subject like '%'||#{subject}||'%'
+   and writer like '%'||#{writer}||'%'
+   start with refno = 0
+   connect by prior no = refno
+   order siblings by no DESC )
+WHERE cnt BETWEEN #{start} AND #{end}

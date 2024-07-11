@@ -44,11 +44,8 @@
             <canvas id="assetChart"></canvas>
         </div>
     </div>
+   </div>
    
-   
-    
-</div>
-
 <script>
     $(document).ready(function(){
         var ctx = document.getElementById('assetChart').getContext('2d');
@@ -81,6 +78,7 @@
             }
         });
     });
+    
 </script>
 </body>
 </html>

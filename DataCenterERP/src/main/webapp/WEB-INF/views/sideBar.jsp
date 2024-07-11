@@ -19,7 +19,7 @@
                 <a class="nav-link" href="${path}/assets.do">Asset List</a>
             </li>
             <li>
-                <a class="nav-link" href="${path}/settings.do">Settings</a>
+                <a class="nav-link" href="${path}/QnA.do">QnA</a>
             </li>
         </ul>
     </div>
