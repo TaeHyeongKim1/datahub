@@ -21,6 +21,7 @@
             <ul class="navbar-nav ml-auto">
                 <c:choose>
                     <c:when test="${not empty sessionScope.user}">
+                   		<li class="nav-item">안녕하세요 ${user} 님</li> 
                         <li class="nav-item">
                             <a class="nav-link" href="${path}/logout.do">Logout</a>
                         </li>

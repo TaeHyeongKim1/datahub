@@ -161,3 +161,6 @@ FROM (
    connect by prior no = refno
    order siblings by no DESC )
 WHERE cnt BETWEEN #{start} AND #{end}
+*/
+Select COUNT(*) from assets where type = 'Router';
+

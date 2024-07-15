@@ -44,6 +44,8 @@ public class AssetService {
         return assetDAO.getMaintenanceCount();
     }
     
-	
+	public int getEachAssets(Asset type){
+		return assetDAO.getEachAssets(type);
+	}
     
 }

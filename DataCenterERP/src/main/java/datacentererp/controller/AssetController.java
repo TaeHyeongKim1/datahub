@@ -84,6 +84,15 @@ public class AssetController {
         return "main";
     }
 	 
+    @GetMapping("/Eachasset.do")
+    public String getEachList(Asset type, Model model){
+    	int eachAsset = assetService.getEachAssets(type);
+    	
+    	model.addAttribute("eachAsset", eachAsset);
+    	
+    	return "redirect:/dashboard.do";
+    }
+    
 }
 
 

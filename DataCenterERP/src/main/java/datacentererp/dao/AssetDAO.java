@@ -46,5 +46,8 @@ public interface AssetDAO {
 
     @Select("SELECT COUNT(*) FROM assets WHERE maintenance_schedule >= ADD_MONTHS(SYSDATE, 2)")
     int getMaintenanceCount();
+    
+    @Select("Select COUNT(*) from assets where type = #{type}")
+    int getEachAssets(Asset type);
 	
 }

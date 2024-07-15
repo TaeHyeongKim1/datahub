@@ -3,7 +3,6 @@ package datacentererp.scheduler;
 import datacentererp.model.Asset;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
@@ -16,22 +15,21 @@ import java.util.List;
 @Component
 public class DatabaseBackupScheduler {
 
-    private final JdbcTemplate jdbcTemplate;     //jdbc객체 선언
+    private final JdbcTemplate jdbcTemplate;
 
     @Autowired
-    public DatabaseBackupScheduler(DataSource dataSource) {     
-        this.jdbcTemplate = new JdbcTemplate(dataSource);    //생성자에 주입된dataSource로 JDBC 객체 초기화
+    public DatabaseBackupScheduler(DataSource dataSource) {
+        this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
-    @Scheduled(cron = "0 0 0 * * *") // 매일 오전 11시에 실행 backup-20240711-000000.sql	
     public void performDbBackup() throws IOException {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd-HHmmss");
-        String backupFileName = "backup-" + dateFormat.format(new Date()) + ".txt";
+        String backupFileName = "backup-" + dateFormat.format(new Date()) + ".sql";
 
-        String backupQuery = "SELECT * FROM assets"; // 백업할 데이터베이스 쿼리
+        String backupQuery = "SELECT * FROM assets";
 
         try (FileWriter writer = new FileWriter("C:/Users/taehe/git/Datahub/backup/" + backupFileName)) {
-            List<Asset> assets = jdbcTemplate.query(backupQuery, (rs, rowNum) -> { 
+            List<Asset> assets = jdbcTemplate.query(backupQuery, (rs, rowNum) -> {
                 Asset asset = new Asset();
                 asset.setId(rs.getInt("id"));
                 asset.setName(rs.getString("name"));

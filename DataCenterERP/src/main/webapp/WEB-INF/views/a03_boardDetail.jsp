@@ -35,7 +35,7 @@
 			alert(msg)  // 등록 성공 alert()로딩 : 모델 데이터를 받아서..
 			var proc = "${proc}"
 			if(proc == 'del'){
-				location.href="boardList.do"
+				location.href="QnA.do"
 			}
 				
 		}

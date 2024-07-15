@@ -43,6 +43,16 @@
         <div class="col-md-8">
             <canvas id="assetChart"></canvas>
         </div>
+        <div class="col-md-9">
+        	<input type="text" name="type" value="${type}" class="form-control mr-sm-2" />
+        	<input type="submit" value="확인"/>
+        		<c:forEach var="type" items="${type}">
+        		<p>자산 타입 : ${type.type} </p>
+        		<p>자산 갯수 : ${eachAsset}</p>
+        		
+        	
+        		</c:forEach>
+        </div>
     </div>
    </div>
    
