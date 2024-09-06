@@ -12,23 +12,23 @@ DatabaseBackupScheduler 같은경우는 데이터센터에서 기본적으로 �
 
 
 ![image](https://github.com/user-attachments/assets/45e2af3e-13e8-4cbf-8517-c5925911224e)
-메인 화면 입니다 사이드 바에서 Asset List를 누르면 
+<br>메인 화면 입니다 사이드 바에서 Asset List를 누르면 
 
 ![image](https://github.com/user-attachments/assets/431e9fb5-58e3-46d1-9465-ef80053821bd)
-자산 들이 나오며 자산 상세버튼을 누르면
+<br>자산 들이 나오며 자산 상세버튼을 누르면
 
 ![image](https://github.com/user-attachments/assets/86c440a7-0e10-4f3f-80b0-73851545d6df)
-자산 상세가 나오며 수정과 삭제는 관리자만 가능하고
+<br>자산 상세가 나오며 수정과 삭제는 관리자만 가능하고
 고객사로 접속한경우에는 할수 없도록 해두었습니다
 
 ![image](https://github.com/user-attachments/assets/aa28e2b7-2043-4018-83bd-c9c0cd7b13e8)
-수정은 모달창으로 진행하였습니다
+<br>수정은 모달창으로 진행하였습니다
 
 ![image](https://github.com/user-attachments/assets/b522414d-86bf-47d7-9e48-409c7933a367)
-QNA 게시판을 이용하여 서버 입출고를 관리하였습니다
+<br>QNA 게시판을 이용하여 서버 입출고를 관리하였습니다
 
 ![image](https://github.com/user-attachments/assets/148600e6-cb2d-4a4f-bced-af597e16ca60)
-DatabaseBackupScheduler를 이용하여
+<br>DatabaseBackupScheduler를 이용하여
 
 ![image](https://github.com/user-attachments/assets/3d238a8a-7614-49c0-8b6f-2cb00d322501)
-매 자정마다 백업파일이 저장되는것을 볼수있습니다
+<br>매 자정마다 백업파일이 저장되는것을 볼수있습니다
